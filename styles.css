@@ -1,0 +1,474 @@
+@font-face {
+    font-family: 'Anton';
+    src: url('./fonts/Anton-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mansalva';
+    src: url('./fonts/Mansalva-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('./fonts/SpaceMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
+ */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not(
+  [stroke="none"],
+  [stroke^="url"]
+)) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+    --collor-dark: #000000;
+    --collor-light: #FFFFFF;
+    --collor-lightyellow: #FDF1D9;
+    --collor-darkdark: #202020;
+
+    --font-family-base: 'Anton', sans-serif, Arial, Helvetica;
+    --font-family-accent: 'Space Mono', monospace;
+
+    --input-height: 59px;
+
+    --container-padding-x: 15px;
+
+    --transition-duration: 0.2s;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+
+a {
+  color: var(--collor-dark);
+}
+
+a:hover {
+  color: gray;
+}
+
+
+
+body {
+    font-family: var(--font-family-base);
+    font-size: 18px;
+    background-color: var(--collor-light);
+    color: var(--collor-darkdark);
+}
+
+.container {
+    margin-inline: auto;
+    padding-inline: var(--container-padding-x);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.header-title {
+    background-color: var(--collor-dark);
+    font-family: var(--font-family-accent);
+    color: var(--collor-light);
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  padding-inline: 25px;
+  border: 1px solid var(--collor-dark);
+}
+
+.header-menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  margin-top: 38px;
+  margin-bottom: 38px;
+}
+
+.header-menu-link {
+  font-family: var(--font-family-accent);
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  margin-top: 38px;
+  margin-bottom: 38px;
+  flex-shrink: 0;
+ }
+
+ .header-links{
+  font-family: var(--font-family-accent);
+  display: flex;
+  column-gap: 50px;
+  margin-top: 38px;
+  margin-bottom: 38px;
+ }
+
+
+
+
+ 
+ .first-section {
+   display: grid;
+   grid-template-columns: 1fr 1fr ;
+   column-gap: 31px;
+  }
+  
+  .title-sip-bysip {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto  auto;
+    justify-items: center;
+    align-content: center;
+    padding-top: 200px;
+    gap: 0;
+    background-image: url(./image/background-image.png);
+    width: 939px;
+    height: 938px;
+  }
+  
+  
+  .logo-natural-product {
+    margin-bottom: -20px;
+    
+  }
+  
+  .title-text {
+    transform: translateX(-100px);
+    font-family: var(--font-family-base);
+    font-size: 120px;
+    font-weight: 400;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color:var(--collor-darkdark);
+    text-align: left;
+  }
+  
+  .logo-with-love {
+    margin-top: -15px;
+  }
+  
+  .faitrade-organic-Climate-tatural {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 1920px;
+    height: 60px;
+    border: 1px solid var(--collor-dark);
+  }
+  
+  .text-coffe-sort {
+    font-family: var(--font-family-accent);
+    font-size: 16px;
+    word-spacing: 10px;
+  }
+  
+  .divider{
+    margin: 0 -10px;
+  }
+
+.section-sale-sort {
+  display: grid;
+  grid-template-columns: 50% 1fr  1fr
+}
+
+.description{
+  border: 0.5px solid var(--collor-dark);
+  background-color: var(--collor-lightyellow);
+}
+
+.description p {
+margin: 0 0 30px 94px;
+
+}
+
+.description p:nth-child(1) {
+  margin-top:115px
+}
+
+.description p:nth-child(2) {
+  margin-bottom:115px;
+}
+
+.para-titles {
+  font-family: var(--font-family-base);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--collor-darkdark);
+}
+
+.para-opis {
+  font-family: var(--font-family-accent);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--collor-darkdark);
+}
+
+.para-vive-more {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  color: var(--collor-darkdark);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.Arabica-Bekele {
+  border: 1px solid var(--collor-dark);
+}
+
+.Robusta-Santa {
+  border: 1px solid var(--collor-dark);
+}
+
+  
+  
+  @media(max-width: 1024px) {
+   .header-logo-menu {
+     flex-wrap: wrap;
+   }
+ 
+   .header-menu {
+     order: 1;
+     flex-basis: 100%;
+   }
+  }
+ 
+  @media(max-width: 439px) {
+   .header-menu-list {
+     height: 10px;
+   }
+  }
