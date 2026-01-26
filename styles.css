@@ -524,6 +524,20 @@ h6 {
   border: 0.5px solid var(--collor-dark);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 1024px) {
   .header-logo-menu {
     flex-wrap: wrap;
