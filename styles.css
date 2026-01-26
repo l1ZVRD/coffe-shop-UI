@@ -524,19 +524,100 @@ h6 {
   border: 0.5px solid var(--collor-dark);
 }
 
+.quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 205px;
+}
 
+.quote-text {
+  font-family: var(--font-family-base);
+  font-size: 35px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--collor-darkdark);
+  text-align: center;
+  letter-spacing: -0, 05px;
+}
 
+.name-Hanry-Monro {
+  font-family: var(--font-family-accent);
+  font-size: 18px;
+  padding-top: 60px;
+}
 
+.banner-pagination-list {
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+  padding-top: 75px;
+}
 
+.banner-pagination-button {
+  width: 10px;
+  aspect-ratio: 1;
+  padding: 0;
+  background-color: transparent;
+  border: 2px solid black;
+}
 
+.banner-pagination-button.is-current {
+  background-color: black;
+}
 
+.activity-points {
+  display: grid;
+  grid-column: repeat(3, 120px) 1fr;
+  border: 1px solid black;
+}
 
+.city-coffe-salon {
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+  line-height: 1;
+}
 
+.lisbon-salon {
+  font-family: var(--font-family-base);
+  font-size: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-top: 50px;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 515px;
+}
 
+.berlin-coffe-roastery {
+  font-family: var(--font-family-base);
+  font-size: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-top: 50px;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 450px;
+}
 
+.amsterdam-coffe-shop {
+  font-family: var(--font-family-base);
+  font-size: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-top: 50px;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 425px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
 
-
-
+.lisbon,
+.berlin {
+  border-right: 1px solid black;
+}
 
 @media (max-width: 1024px) {
   .header-logo-menu {
