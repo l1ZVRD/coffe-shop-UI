@@ -424,17 +424,7 @@ h6 {
 }
 
 .Arabica-Bekele {
-  border: 1px solid var(--collor-dark);
-}
-
-.Robusta-Santa {
-  border: 1px solid var(--collor-dark);
-}
-
-.Arabica-Bekele {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
   background-color: var(--collor-lightyellow);
 }
 
@@ -443,44 +433,24 @@ h6 {
 }
 
 .text-container {
-  align-self: flex-start;
   margin-left: 43px;
   margin-bottom: 36px;
   margin-top: 15px;
 }
 
-.Name-Arabika-Bekele {
-  font-family: var(--font-family-base);
-  font-size: 25px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--collor-darkdark);
-}
-
-.price-Arabika-Bekele {
-  font-family: var(--font-family-accent);
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--collor-darkdark);
-}
-
 .Robusta-Santa {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
 }
 
 .Robusta-Santa-image {
-  margin-top: 50px;
+  padding-top: 50px;
 }
 
 .text-container-robusta {
-  align-self: flex-start;
   margin-left: 43px;
-  margin-bottom: 36px;
-  margin-top: 23px;
 }
 
+.Name-Arabika-Bekele,
 .Name-Robusta-Santa {
   font-family: var(--font-family-base);
   font-size: 25px;
@@ -489,11 +459,19 @@ h6 {
   color: var(--collor-darkdark);
 }
 
+.price-Arabika-Bekele,
 .price-Robusta-Santa {
   font-family: var(--font-family-accent);
   font-size: 18px;
   font-weight: 400;
   color: var(--collor-darkdark);
+}
+
+.Robusta-Santa {
+  border: 1px solid var(--collor-dark);
+}
+.Arabica-Bekele {
+  border: 1px solid var(--collor-dark);
 }
 
 .Big-logo-coffe-shop {
@@ -669,6 +647,53 @@ h6 {
   font-weight: 400;
   text-transform: uppercase;
   color: var(--collor-light);
+}
+
+.title-coffe-for-you {
+  padding: 38px;
+  border-bottom: 1px solid black;
+}
+
+.title-coffe-price {
+  font-family: var(--font-family-base);
+  font-size: 70px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--collor-darkdark);
+}
+
+.varieties-prices {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.french-roast,
+.decaf-espresso,
+.costa-rica,
+.decaf-french-roast {
+  padding-left: 43px;
+  border-right: 1px solid black;
+}
+
+.french-roast-name,
+.decaf-espresso-name,
+.costa-rica-name,
+.decaf-french-roast-name {
+  font-family: var(--font-family-base);
+  font-size: 25px;
+  color: var(--collor-darkdark);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.french-roast-price,
+.decaf-espresso-price,
+.costa-rica-price,
+.decaf-french-roast-price {
+  font-family: var(--font-family-accent);
+  font-size: 18px;
+  color: var(--collor-dark);
+  text-transform: uppercase;
+  font-weight: 300;
 }
 
 @media (max-width: 1024px) {
