@@ -590,10 +590,28 @@ h6 {
 }
 
 .city-coffe-salon {
+  display: contents;
+}
+
+.city-coffe-salon h4 {
   writing-mode: vertical-rl;
-  transform: rotate(-180deg);
-  max-width: 120px;
-  overflow: hidden;
+  transform: rotate(180deg);
+
+  font-family: var(--font-family-base);
+  font-size: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  padding: 50px 23px;
+  border-right: 1px solid black;
+}
+
+.lisbon,
+.berlin,
+.Amsterdam {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* 🔥 прижать вниз */
 }
 
 .lisbon-salon {
@@ -604,7 +622,7 @@ h6 {
   padding-top: 50px;
   padding-left: 23px;
   padding-right: 23px;
-  padding-bottom: 515px;
+  padding-bottom: 51px;
 }
 
 .berlin-coffe-roastery {
@@ -615,7 +633,7 @@ h6 {
   padding-top: 50px;
   padding-left: 23px;
   padding-right: 23px;
-  padding-bottom: 450px;
+  padding-bottom: 45px;
 }
 
 .amsterdam-coffe-shop {
@@ -626,7 +644,7 @@ h6 {
   padding-top: 50px;
   padding-left: 23px;
   padding-right: 23px;
-  padding-bottom: 425px;
+  padding-bottom: 42px;
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
@@ -847,6 +865,32 @@ h6 {
   color: var(--collor-darkdark);
   margin-bottom: 7.44em;
   flex-wrap: wrap;
+  display: flex;
+  align-items: end;
+  gap: 35px;
+}
+
+input {
+  width: 345px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+select {
+  border: none;
+  width: 300px;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.reserve-button {
+  font-family: var(--font-family-base);
+  font-size: 17px;
+  color: var(--collor-light);
+  background-color: var(--collor-dark);
+  width: 163px;
+  height: 59px;
 }
 
 /* планшет */
